@@ -1,30 +1,38 @@
-import React from 'react'
+import React, { useState } from 'react';
 
-export const Content = () => {
+const Content = () => {
+   
+    // function namee() {
+    //     return console.log("Visit shimhan.lk")
+    // }
+    
+    // const [count, setCount] = useState(0);
+    // const [name, setName] = useState(() => handleName())
+    
+
+    // function increment() {
+    //     setCount(count + 1);
+    // }
+
+    // function decrement() {
+    //     if (count > 0) {
+    //         setCount(count - 1);
+    //     }
+    // }
+    const [name, setName] = useState('Earn')
     function handleName() {
-        const num = Math.random() * 10
-        if (num > 7) {
-            return "Hello everyone"
-        }
-        else {
-            return "how are you"
-        }
+        const names = ["Earn", "Grow", "Give"];
+        const num = Math.floor(Math.random() * names.length);
+        setName(names[num]);
     }
     
-    const handleEvent = (e) => {
-        console.log(e.target.innerText)
-    }
-
-    const handleEvent1 = (name) => {
-        console.log(`Thanks for click button ${name}`)
-    }
-
+    
     return (
-      <main>
-            <p onDoubleClick={() =>handleEvent1('shimhan')}>{handleName()} How are you</p>
-            <button onClick={(e) =>  handleEvent(e) }   className='but'> Hello  </button>
-      </main>  
-  )
-}
+        <main>
+            <p>Let's {name} money</p>
+            <button className='but' onClick={handleName}>Subscribe</button>    
+        </main>
+    );
+};
 
-export default Content
+export default Content;

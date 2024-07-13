@@ -1,0 +1,38 @@
+.box {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    /* Ensures items are in a column */
+}
+
+.item {
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+    /* Adds space between items */
+}
+
+.item input[type='checkbox'] {
+    margin-right: 0.5rem;
+    width: 30px;
+    height: 30px;
+}
+
+.item label {
+    flex-grow: 1;
+    margin-right: auto;
+}
+
+.del {
+    margin-left: 20px;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
