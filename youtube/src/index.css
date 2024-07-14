@@ -72,3 +72,56 @@ p{
 .del:hover{
   transform: scale(0.8,0.8);
 }
+
+.add{
+  background-color:#f9f9f9;
+  width: 300px;
+  height: 50px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  margin-left: 615px;
+  margin-top: 20px;
+  border: 1px solid #ccc;
+  justify-content: center;
+}
+
+.add input{
+  border: none;
+  width: calc(100%-50px);
+  height: 30px;
+  margin-top: 10px;
+  margin-left: -50px;
+  align-items: center;
+}
+
+.adbut{
+  height: 32px;
+  width: 32px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-left: 50px;
+  color: blue;
+}
+.adbut:hover{
+  background-color: lightblue;
+}
+.addi{
+  margin-left: 3px;
+  color:#f9f9f9 ;
+}
+
+#search{
+  border: none;
+  background-color:#f9f9f9 ;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-left: 616px;
+    width: 277px;
+    height: 45px;
+    margin-top: 10px;
+    align-items: center;
+    padding-left: 20px;
+}
+#search::placeholder{
+   text-align: left;
+}

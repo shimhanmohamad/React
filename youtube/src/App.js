@@ -4,30 +4,13 @@ import './index.css'
 import Todolist from './Todolist';
 import './Todolist.css'
 import { useState } from 'react'
+import Addlist from './Addlist';
+import Searchitem from './Searchitem';
 
 
 
 function App() {
-  const [items, setItem] = useState(
-    [
-      {
-        id: 1,
-        checked: true,
-        item: "Practicing coding"
-      },
-
-      {
-        id: 2,
-        checked: false,
-        item: "Playing Cricket"
-      },
-
-      {
-        id: 3,
-        checked: false,
-        item: "Sleeping"
-      }
-    ])
+  const [items, setItem] = useState(JSON.parse(localStorage.getItem("todo_list")))
 
   const handlecheck = (id) => {
     const listItems = items.map((tem) =>
@@ -43,17 +26,45 @@ function App() {
     setItem(deleteItem)
     localStorage.setItem("todo_list", JSON.stringify(deleteItem))
   }
+  
+  const handlesubmit = (e) => {
+    e.preventDefault()
+    if (!newState) return
+    console.log(newState)
+    Additem(newState) 
+    setnewState('')
+  }
 
+  const [newState, setnewState] = useState('')
+  const [search,setSearch] = useState('')
+  
+  const Additem = (item) => {
+    const id = items.length ? items[items.length-1].id + 1 : 1
+    const addnewItem = { id, checked: false, item }
+    const listItems = [...items, addnewItem]
+    setItem(listItems)
+    localStorage.setItem("todo_list",JSON.stringify(listItems))
+  }
 
   return (
     <div className="App">
-      <Header title = "Shimhan University" />
+      <Header title="Shimhan University" />
+      <Addlist
+        handlesubmit={handlesubmit}
+        newState={newState}
+        setnewState = {setnewState}
+      />
+      <Searchitem
+         search = {search}
+         setSearch = {setSearch}
+      />
       <Todolist
-        items={items}
+        items={items.filter(item => (item.item.toLowerCase()).includes(search.toLowerCase()))}
         setItem={setItem}
         handlecheck={handlecheck}
-        Deleteitem = {Deleteitem}
+        Deleteitem={Deleteitem}
       />
+
       <Footer
          length = {items.length}
       />
